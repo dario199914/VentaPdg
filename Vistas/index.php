@@ -4,116 +4,110 @@ $usuario = new DataBase();
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Sistemas de Ventas</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="login/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="login/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="login/css/util.css">
-	<link rel="stylesheet" type="text/css" href="login/css/main.css">
-<!--===============================================================================================-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="Container/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="Container/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
-<body style="background-color: #666666;">
-	
-	<div class="limiter">
-		<div class="container-login100">
-            
-			<div class="wrap-login100">
-                
-				<form class="login100-form " action="../Contralador/usuarios.php" method="POST">
-              
-                	<span class="login100-form-title p-b-43">
-                        Sistemas de Ventas
-					</span>
-					
-					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="user" id="user">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Correo</span>
-					</div>
-					
-					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" id="pass">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Contraseña</span>
-					</div>
 
-					<div class="flex-sb-m w-full p-t-3 p-b-32">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Recuérdame
-							</label>
-						</div>
+<body class="bg-gradient-primary">
 
-						<div>
-							<a href="#" class="txt1">
-                            ¿Has olvidado tu contraseña?
-                        							</a>
-						</div>
-					</div>
-			
+    <div class="container">
 
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" id="send-form" name="btnVerificar">
-							Ingresar
-						</button>
-					</div>
-					
-					
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-				
-				</form>
+            <div class="col-xl-10 col-lg-12 col-md-9">
 
-				<div class="login100-more" style="background-image: url('login/images/store_2.jpg');">
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form action="../Contralador/usuarios.php" method="POST">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                id="user" name="user" required aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address...">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="pass" name="pass" required placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div>
 
-	
-	
-<!--===============================================================================================-->
-	<script src="login/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/bootstrap/js/popper.js"></script>
-	<script src="login/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/daterangepicker/moment.min.js"></script>
-	<script src="login/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="login/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="login/js/main.js"></script>
+                                        <div class="container-login100-form-btn">
+                                            <button class="btn btn-primary btn-user btn-block" id="send-form" name="btnVerificar">
+                                                Ingresar
+                                            </button>
+                                        </div>
+
+                                        <hr>
+                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                        </a>
+                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">Create an Account!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="Container/vendor/jquery/jquery.min.js"></script>
+    <script src="Container/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="Container/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="Container/js/sb-admin-2.min.js"></script>
 
 </body>
+
 </html>

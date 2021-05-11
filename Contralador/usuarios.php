@@ -32,7 +32,7 @@ if(isset($_POST['btnVerificar'])!=null){
    $res=$usuario->verficar($user,$pass);
    
     if($res==1){
-
+    echo '.$pass.';
     echo '<script language="javascript">alert("Bienvenido Usuario ");
             window.location.href="../Vistas/Container/index.php"</script>';
     
@@ -40,7 +40,7 @@ if(isset($_POST['btnVerificar'])!=null){
     
     }else{
         echo '<script language="javascript">alert("Ingrese credenciales Correctas ");
-            window.location.href="../Vistas/Container/login.php"</script>';
+            window.location.href="../Vistas/index.php"</script>';
     
     }
 }
