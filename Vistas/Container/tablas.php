@@ -36,7 +36,7 @@ $usuario = new DataBase();
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Codigo</th>
+                            <th>Codigo_1</th>
                             <th>Nombre</th>
                             <th>Categoria</th>
                             <th>Proveedor</th>
