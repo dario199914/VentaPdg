@@ -1,5 +1,6 @@
 <?php
     class DataBase{
+        
         private $con;
         private $dbhost="localhost";
         private $dbuser="root";
