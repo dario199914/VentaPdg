@@ -360,7 +360,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     
-
+    <h1>prueba de categoria </h1>
                   
 
                                        

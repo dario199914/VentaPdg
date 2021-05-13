@@ -2,9 +2,12 @@
 include "../../data_base.php";
 $producto = new DataBase();
 $listado=$producto->readPro();
+$list_cat=$producto->fill_list();
+$list_pro=$producto->fill_list2();
+
 
 ?>
-
+<link rel="stylesheet" href="media/font-awesome/css/font-awesome.css">
 <!-- Begin Page Content -->
 <div class="container-fluid" style="padding: 2%;">
 
@@ -33,72 +36,63 @@ $listado=$producto->readPro();
 
                 </div>
                 <div class="modal-body" style="padding: 4%;">
-                    <form class="row g-3">
+                    <form class="row g-3" action="../../Contralador/usuarios.php" method="POST">
                         <div class="col-md-4">
                             <label for="inputEmail4" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre">
+                            <input type="text" class="form-control" id="txt_nombre" name="txt_nombre">
                         </div>
                         <div class="col-md-4">
                             <label for="inputPassword4" class="form-label">Categoria</label>
                             <div class="dropdown mb-4 ">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Seleccione Categoria
-                                </button>
-                                <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
+                                <select class="form-control" name="slc_categoria" id="slc_categoria">
+                                    <option value="">Selecciona</option>
+                                    <?php  foreach ($list_cat as $cat): ?>
+                                    <option value="<?php echo (int)$cat['CAT_ID'] ?>">
+                                        <?php echo $cat['CAT_NOMBRE'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label for="inputPassword4" class="form-label">Proveedor</label>
                             <div class="dropdown mb-4 ">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Seleccione Proveedor
-                                </button>
-                                <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
+                                <select class="form-control" name="slc_proveedor" id="slc_proveedor">
+                                    <option value="">Selecciona</option>
+                                    <?php  foreach ($list_pro as $pro): ?>
+                                    <option value="<?php echo (int)$pro['PRV_ID'] ?>">
+                                        <?php echo $pro['PRV_NOMBRE'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col-12" style="padding-top: 1%;">
 
                             <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="txt_descripcion" name="txt_descripcion"
+                                rows="3"></textarea>
                         </div>
                         <div class="col-md-6" style="padding-top: 2%;">
                             <label for="inputCity" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" id="inputCity">
+                            <input type="date" class="form-control" id="txt_fecha" name="txt_fecha">
                         </div>
                         <div class="col-md-2" style="padding-top: 2%;">
                             <label for="inputState" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="inputZip">
+                            <input type="number" class="form-control" id="txt_cantidad" name="txt_cantidad">
                         </div>
                         <div class="col-md-2" style="padding-top: 2%;">
                             <label for="inputZip" class="form-label">Ganancia($)</label>
-                            <input type="text" class="form-control" id="inputZip">
+                            <input type="text" class="form-control" id="txt_ganancia" name="txt_ganancia">
                         </div>
                         <div class="col-md-2" style="padding-top: 2%;">
                             <label for="inputZip" class="form-label">Precio($)</label>
-                            <input type="text" class="form-control" id="inputZip">
+                            <input type="text" class="form-control" id="txt_precio" name="txt_precio">
                         </div>
-
-
-                    </form>
-
-
-
-
 
                 </div>
                 <div class="modal-footer" style="padding-right: 4%;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-primary" id="send-form"
+                        name="btn_registrar_producto">Registrar</button>
                 </div>
             </div>
         </div>
@@ -136,25 +130,42 @@ $listado=$producto->readPro();
                     </tfoot>
                     <?php  
                             while ($row= mysqli_fetch_object($listado)){
+                                
                                     $id=$row->PRO_ID;
-                                    $categoria=$row->CAT_ID;
-                                    $subC=$row->PRV_ID;
                                     $nombre=$row->PRO_NOMBRE;
-                                    $des=$row->PRO_STOCK;
-                                    $precio=$row->PRO_DESC;
-                                    $stock=$row->PRO_PRECIO;
+                                    $categoria=$row->CAT_NOMBRE;
+                                    $proveedor=$row->PRV_NOMBRE;
+                                    $precio=$row->PRO_PRECIO;
+                                    $stock=$row->PRO_STOCK;
                                 
                         ?>
                     <tbody>
-                       
+
+                        <td><?php echo $id; ?></td>
+                        <td><?php echo $nombre; ?></td>
                         <td><?php echo $categoria; ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $proveedor; ?></td>
+                        <td><?php echo $precio; ?></td>
+                        <td><?php echo $stock; ?></td>
+                        <td>
+                            <div class="btn-group">
+                               <!-- <a href="edit_product.php?id=<?php echo (int)$product['id'];?>"
+                                    class="btn btn-info btn-xs" title="Editar" data-toggle="tooltip">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                </a>
+                                <a href="delete_product.php?id=<?php echo (int)$product['id'];?>"
+                                    class="btn btn-danger btn-xs" title="Eliminar" data-toggle="tooltip">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a> -->
+
+                                <a class="edit" style="padding-right: 40%;" data-id="<?= $employee['id'] ?>" href="#"><i class="fas fa-edit"></i></a>
+                                <a class="delete" data-id="<?= $employee['id'] ?>" href="#"><i class="fas fa-trash-alt"></i></a>
+
+                            </div>
+                        </td>
+
                         <?php }?>
+
                     </tbody>
                 </table>
             </div>

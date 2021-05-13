@@ -2,23 +2,35 @@
 include "../data_base.php";
 $usuario = new DataBase();
 
-/*if(isset($_POST['bntregistrar'])!=null){
-$nom = $_POST['txtnombre'];
-$ape = $_POST['txtape'];
-$ci = $_POST['txtCi'];
-$sex = $_POST['txtsexo'];
-$numt = $_POST['txtnumT'];
+if(isset($_POST['btn_registrar_producto'])!=null){
 
-$res=$usuario->create($nom,$ape,$ci,$sex,$numt);
+$cat_id = $_POST['slc_categoria'];
+$prv_id = $_POST['slc_proveedor'];
+
+$emp_id = '1';
+$pro_codigo = '1';
+$pro_nombre = $_POST['txt_nombre'];
+$pro_des = $_POST['txt_descripcion'];
+$pro_fecha = $_POST['txt_fecha'];
+$pro_stock = $_POST['txt_cantidad'];
+$pro_ganancia = $_POST['txt_ganancia'];
+$pro_precio = $_POST['txt_precio'];
+$pro_obse = '1';
+
+
+
+$res=$usuario->register_product($cat_id,$prv_id,$emp_id,$pro_codigo,$pro_nombre,$pro_stock,$pro_des,$pro_precio,$pro_obse,$pro_fecha,$pro_ganancia);
 if($res){
 
-    echo "Registro se guardó con éxito";
+    echo '<script language="javascript">alert("Producto Registrado ");
+    window.location.href="../Vistas/Container/listar_productos.php"</script>';
     
 }else{
-    echo "Registro falló";
+    echo '<script language="javascript">alert("Producto NO Registrado ");
+    window.location.href="../Vistas/Container/listar_productos.php"</script>';
 }
 
-}*/
+}
 
 
 
@@ -32,7 +44,7 @@ if(isset($_POST['btnVerificar'])!=null){
    $res=$usuario->verficar($user,$pass);
    
     if($res==1){
-    echo '.$pass.';
+    
     echo '<script language="javascript">alert("Bienvenido Usuario ");
             window.location.href="../Vistas/Container/index.php"</script>';
     

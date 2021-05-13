@@ -37,8 +37,8 @@
             }
         }
 
-        public function create($nombre,$ape,$ced,$sex,$numero){
-            $sql=" INSERT INTO tbl_usuario(nombre, apellido, cedula,sexo,numero) VALUES ('$nombre','$ape','$ced','$sex',$numero)";
+        public function register_product($cat_id,$prv_id,$emp_id,$pro_codigo,$pro_nombre,$pro_stock,$pro_des,$pro_precio,$pro_obse,$pro_fecha,$pro_ganancia){
+            $sql=" INSERT INTO tbl_producto(CAT_ID, PRV_ID, EMP_ID, PRO_CODIGO, PRO_NOMBRE, PRO_STOCK, PRO_DESC, PRO_PRECIO,PRO_OBSER, PRO_FEHCA, PRO_GANANCIA) VALUES ('$cat_id','$prv_id','$emp_id','$pro_codigo','$pro_nombre','$pro_stock','$pro_des','$pro_precio','$pro_obse','$pro_fecha','$pro_ganancia')";
             $res=mysqli_query($this->con, $sql);
             if($res){
                 return true;
@@ -46,6 +46,8 @@
                 return false;
             }
         }
+
+
         public function recuperar($usu,$correo){
             //SELECT *FROM `tbl_user` WHERE user='dario' AND pass='123'
 
@@ -83,12 +85,27 @@
 
         public function readPro()
         {
-            $sql = "SELECT * FROM tbl_producto";
+            $sql = "SELECT P.PRO_ID,P.PRO_NOMBRE,C.CAT_NOMBRE,PR.PRV_NOMBRE,P.PRO_PRECIO,P.PRO_STOCK FROM tbl_producto P JOIN tbl_categoria C ON P.CAT_ID=C.CAT_ID JOIN tbl_proveedor PR ON P.PRV_ID=PR.PRV_ID";
             $res=mysqli_query($this->con, $sql);
            
             return $res;
         }
 
+        public function fill_list()
+        {
+            $sql = "SELECT * FROM tbl_categoria"; 
+            $res=mysqli_query($this->con, $sql);
+           
+            return $res;
+        }
+        public function fill_list2()
+        {
+            $sql = "SELECT * FROM tbl_proveedor"; 
+            $res=mysqli_query($this->con, $sql);
+           
+            return $res;
+        }
+        
 
 
     }

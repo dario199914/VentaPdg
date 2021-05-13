@@ -359,7 +359,6 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    
 
                   
 
@@ -367,7 +366,7 @@
 
                 </div>
                 <!-- /.container-fluid -->
-               
+                <?php include "tablas.php"?>
             </div>
             <!-- End of Main Content -->
 
