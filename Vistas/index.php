@@ -2,6 +2,8 @@
 include "../data_base.php";
 $usuario = new DataBase();
 
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
