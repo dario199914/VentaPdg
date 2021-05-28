@@ -2,6 +2,8 @@
 include "../data_base.php";
 $usuario = new DataBase();
 
+
+
 if(isset($_POST['btn_registrar_producto'])!=null){
 
 $cat_id = $_POST['slc_categoria'];
@@ -39,10 +41,18 @@ if(isset($_POST['btnVerificar'])!=null){
 
     $user= $_POST['user'];
     $pass = $_POST['pass'];
+    $nombre_usu=$user;
+
+    session_start();
+$_SESSION["nombre"] = $nombre_usu;
+header('Location:../Vistas/Container/index.php');
+
+    
+    
 
 
    $res=$usuario->verficar($user,$pass);
-   
+    
     if($res==1){
     
     echo '<script language="javascript">alert("Bienvenido Usuario ");
