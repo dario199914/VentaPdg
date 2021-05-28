@@ -29,7 +29,9 @@
             $res=mysqli_query($this->con, $sql);
             $r=mysqli_num_rows($res);
             
-
+            session_start();
+            $_SESSION['usuario']=$r;
+            
             if($r==1){
                 return true;
             }else{

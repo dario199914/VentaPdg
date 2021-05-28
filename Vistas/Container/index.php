@@ -1,8 +1,16 @@
 <?php
-
 session_start();
 
-session_destroy();
+
+if(!isset($_SESSION['usuario'])){
+    echo "redirigir al login........no hay usuario";
+    header('Location:../index.php');
+}
+{
+    print_r($_SESSION['usuario']);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -340,7 +348,7 @@ session_destroy();
                                     
                                 <?php
                                 
-                                echo $_SESSION["nombre"];
+                                echo $_SESSION["usuario"];
 
                                 ?>                                
                             </span>
@@ -416,7 +424,7 @@ session_destroy();
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+                    <a class="btn btn-primary" href="../index.php"><?php session_destroy();  ?> Logout</a>
                 </div>
             </div>
         </div>
