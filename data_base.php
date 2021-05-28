@@ -30,7 +30,7 @@
             $r=mysqli_num_rows($res);
             
             session_start();
-            $_SESSION['usuario']=$r;
+            $_SESSION['usuario']=$usu;
             
             if($r==1){
                 return true;
