@@ -44,8 +44,9 @@ if(isset($_POST['btnVerificar'])!=null){
     $nombre_usu=$user;
 
     session_start();
-$_SESSION["nombre"] = $nombre_usu;
-header('Location:../Vistas/Container/index.php');
+    $_SESSION["nombre"] = $nombre_usu;
+
+    header('Location:../Vistas/Container/index.php');
 
     
     
