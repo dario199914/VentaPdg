@@ -85,7 +85,7 @@
 
         public function readPro()
         {
-            $sql = "SELECT P.PRO_ID,P.PRO_NOMBRE,C.CAT_NOMBRE,PR.PRV_NOMBRE,P.PRO_PRECIO,P.PRO_STOCK FROM tbl_producto P JOIN tbl_categoria C ON P.CAT_ID=C.CAT_ID JOIN tbl_proveedor PR ON P.PRV_ID=PR.PRV_ID";
+            $sql = "SELECT P.PRO_ID,P.PRO_NOMBRE,C.CAT_NOMBRE,PR.PRV_NOMBRE,P.PRO_PRECIO,P.PRO_STOCK FROM tbl_producto P JOIN tbl_categoria C ON P.CAT_ID=C.CAT_ID JOIN tbl_proveedor PR ON P.PRV_ID=PR.PRV_ID WHERE P.EMP_ID='2'";
             $res=mysqli_query($this->con, $sql);
            
             return $res;

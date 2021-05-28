@@ -158,8 +158,8 @@ $list_pro=$producto->fill_list2();
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a> -->
 
-                                <a class="edit" style="padding-right: 40%;" data-id="<?= $employee['id'] ?>" href="#"><i class="fas fa-edit"></i></a>
-                                <a class="delete" data-id="<?= $employee['id'] ?>" href="#"><i class="fas fa-trash-alt"></i></a>
+                                <a data-bs-target="#exampleModal" class="edit" style="padding-right: 40%;" href="#"><i class="fas fa-edit"></i></a>
+                                <a class="delete" href="#"><i class="fas fa-trash-alt"></i></a>
 
                             </div>
                         </td>

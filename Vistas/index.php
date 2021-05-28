@@ -2,7 +2,6 @@
 include "../data_base.php";
 $usuario = new DataBase();
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +13,8 @@ $usuario = new DataBase();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="../push.js-master/push.min.js"></script>
+    
 
     <title>SB Admin 2 - Login</title>
 
@@ -32,6 +33,19 @@ $usuario = new DataBase();
 <body class="bg-gradient-primary">
 
     <div class="container">
+    <?php
+		echo '<script>
+		Push.create("Hola mundo",{
+			body: "Este es el cuerpo de la notificacion",
+			icon: "img/logo.png",
+			timeout: 4000,
+			onClick: function () {
+				window.location="https://nickersoft.github.io/push.js/";
+				this.close();
+			}
+		});
+	</script>';
+	?>
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -82,10 +96,10 @@ $usuario = new DataBase();
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a class="small" href="Container/forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="Container/register.html">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
