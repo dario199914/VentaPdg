@@ -43,15 +43,7 @@ if(isset($_POST['btnVerificar'])!=null){
     $pass = $_POST['pass'];
     $nombre_usu=$user;
 
-    session_start();
-    $_SESSION["nombre"] = $nombre_usu;
-
-    header('Location:../Vistas/Container/index.php');
-
-    
-    
-
-
+     
    $res=$usuario->verficar($user,$pass);
     
     if($res==1){
